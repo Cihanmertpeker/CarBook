@@ -1,8 +1,8 @@
-﻿using CarBook.Application.Features.CQRS.Commands.BannerCommands;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using CarBook.Application.Features.CQRS.Commands.BannerCommands;
 using CarBook.Application.Features.CQRS.Handlers.BannerHandlers;
 using CarBook.Application.Features.CQRS.Queries.BannerQueries;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
 
 namespace CarBook.WebApi.Controllers
 {
@@ -24,6 +24,7 @@ namespace CarBook.WebApi.Controllers
             _updateBannerCommandHandler = updateBannerCommandHandler;
             _removeBannerCommandHandler = removeBannerCommandHandler;
         }
+
         [HttpGet]
         public async Task<IActionResult> BannerList()
         {
