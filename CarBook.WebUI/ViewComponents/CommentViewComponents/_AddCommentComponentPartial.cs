@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace UdemyCarBook.WebUI.ViewComponents.CommentViewComponents
+namespace CarBook.WebUI.ViewComponents.CommentViewComponents
 {
     public class _AddCommentComponentPartial:ViewComponent
     {

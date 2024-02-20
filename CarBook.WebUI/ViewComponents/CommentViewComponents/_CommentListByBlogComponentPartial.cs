@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 
 
-namespace UdemyCarBook.WebUI.ViewComponents.CommentViewComponents
+namespace CarBook.WebUI.ViewComponents.CommentViewComponents
 {
     public class _CommentListByBlogComponentPartial:ViewComponent
     {

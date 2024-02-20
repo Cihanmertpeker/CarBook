@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using CarBook.Dto.TestimonialDtos;
 
-namespace UdemyCarBook.WebUI.ViewComponents.TestimonialViewComponents
+namespace CarBook.WebUI.ViewComponents.TestimonialViewComponents
 {
     public class _TestimonialComponantPartial : ViewComponent
     {
