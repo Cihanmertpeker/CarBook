@@ -1,13 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CarBook.Application.Interfaces.CarPricingInterfaces;
+﻿using CarBook.Application.Interfaces.CarPricingInterfaces;
+using CarBook.Application.ViewModels;
 using CarBook.Domain.Entities;
 using CarBook.Persistence.Context;
-using CarBook.Application.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace CarBook.Persistence.Repositories.CarPricingRepositories
 {

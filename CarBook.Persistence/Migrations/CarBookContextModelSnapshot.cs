@@ -44,7 +44,62 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasKey("AboutID");
 
-                    b.ToTable("Abouts", (string)null);
+                    b.ToTable("Abouts");
+                });
+
+            modelBuilder.Entity("CarBook.Domain.Entities.AppRole", b =>
+                {
+                    b.Property<int>("AppRoleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AppRoleId"));
+
+                    b.Property<string>("AppRoleName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AppRoleId");
+
+                    b.ToTable("AppRoles");
+                });
+
+            modelBuilder.Entity("CarBook.Domain.Entities.AppUser", b =>
+                {
+                    b.Property<int>("AppUserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AppUserId"));
+
+                    b.Property<int>("AppRoleId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AppUserId");
+
+                    b.HasIndex("AppRoleId");
+
+                    b.ToTable("AppUsers");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Author", b =>
@@ -69,7 +124,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasKey("AuthorID");
 
-                    b.ToTable("Authors", (string)null);
+                    b.ToTable("Authors");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Banner", b =>
@@ -98,7 +153,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasKey("BannerID");
 
-                    b.ToTable("Banners", (string)null);
+                    b.ToTable("Banners");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Blog", b =>
@@ -136,7 +191,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasIndex("CategoryID");
 
-                    b.ToTable("Blogs", (string)null);
+                    b.ToTable("Blogs");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Brand", b =>
@@ -153,7 +208,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasKey("BrandID");
 
-                    b.ToTable("Brands", (string)null);
+                    b.ToTable("Brands");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Car", b =>
@@ -200,7 +255,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasIndex("BrandID");
 
-                    b.ToTable("Cars", (string)null);
+                    b.ToTable("Cars");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.CarDescription", b =>
@@ -222,7 +277,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasIndex("CarID");
 
-                    b.ToTable("CarDescriptions", (string)null);
+                    b.ToTable("CarDescriptions");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.CarFeature", b =>
@@ -248,7 +303,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasIndex("FeatureID");
 
-                    b.ToTable("CarFeatures", (string)null);
+                    b.ToTable("CarFeatures");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.CarPricing", b =>
@@ -274,7 +329,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasIndex("PricingID");
 
-                    b.ToTable("CarPricings", (string)null);
+                    b.ToTable("CarPricings");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Category", b =>
@@ -291,7 +346,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasKey("CategoryID");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Comment", b =>
@@ -324,7 +379,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasIndex("BlogID");
 
-                    b.ToTable("Comments", (string)null);
+                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Contact", b =>
@@ -356,7 +411,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasKey("ContactID");
 
-                    b.ToTable("Contacts", (string)null);
+                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Customer", b =>
@@ -381,7 +436,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasKey("CustomerID");
 
-                    b.ToTable("Customers", (string)null);
+                    b.ToTable("Customer");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Feature", b =>
@@ -398,7 +453,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasKey("FeatureID");
 
-                    b.ToTable("Features", (string)null);
+                    b.ToTable("Features");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.FooterAddress", b =>
@@ -427,7 +482,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasKey("FooterAddressID");
 
-                    b.ToTable("FooterAddresses", (string)null);
+                    b.ToTable("FooterAddresses");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Location", b =>
@@ -444,7 +499,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasKey("LocationID");
 
-                    b.ToTable("Locations", (string)null);
+                    b.ToTable("Locations");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Pricing", b =>
@@ -461,7 +516,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasKey("PricingID");
 
-                    b.ToTable("Pricings", (string)null);
+                    b.ToTable("Pricings");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.RentACar", b =>
@@ -487,7 +542,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasIndex("LocationID");
 
-                    b.ToTable("RentACars", (string)null);
+                    b.ToTable("RentACars");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.RentACarProcess", b =>
@@ -539,7 +594,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasIndex("CustomerID");
 
-                    b.ToTable("RentACarProcesses", (string)null);
+                    b.ToTable("RentACarProcess");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Reservation", b =>
@@ -598,7 +653,43 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasIndex("PickUpLocationID");
 
-                    b.ToTable("Reservations", (string)null);
+                    b.ToTable("Reservations");
+                });
+
+            modelBuilder.Entity("CarBook.Domain.Entities.Review", b =>
+                {
+                    b.Property<int>("ReviewID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReviewID"));
+
+                    b.Property<int>("CarID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerImage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RaytingValue")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ReviewDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ReviewID");
+
+                    b.HasIndex("CarID");
+
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Service", b =>
@@ -623,7 +714,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasKey("ServiceID");
 
-                    b.ToTable("Services", (string)null);
+                    b.ToTable("Services");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.SocialMedia", b =>
@@ -648,7 +739,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasKey("SocialMediaID");
 
-                    b.ToTable("SocialMedias", (string)null);
+                    b.ToTable("SocialMedias");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.TagCloud", b =>
@@ -670,7 +761,7 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasIndex("BlogID");
 
-                    b.ToTable("TagClouds", (string)null);
+                    b.ToTable("TagClouds");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Testimonial", b =>
@@ -699,7 +790,18 @@ namespace CarBook.Persistence.Migrations
 
                     b.HasKey("TestimonialID");
 
-                    b.ToTable("Testimonials", (string)null);
+                    b.ToTable("Testimonials");
+                });
+
+            modelBuilder.Entity("CarBook.Domain.Entities.AppUser", b =>
+                {
+                    b.HasOne("CarBook.Domain.Entities.AppRole", "AppRole")
+                        .WithMany("AppUsers")
+                        .HasForeignKey("AppRoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppRole");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Blog", b =>
@@ -855,6 +957,17 @@ namespace CarBook.Persistence.Migrations
                     b.Navigation("PickUpLocation");
                 });
 
+            modelBuilder.Entity("CarBook.Domain.Entities.Review", b =>
+                {
+                    b.HasOne("CarBook.Domain.Entities.Car", "Car")
+                        .WithMany("Reviews")
+                        .HasForeignKey("CarID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Car");
+                });
+
             modelBuilder.Entity("CarBook.Domain.Entities.TagCloud", b =>
                 {
                     b.HasOne("CarBook.Domain.Entities.Blog", "Blog")
@@ -864,6 +977,11 @@ namespace CarBook.Persistence.Migrations
                         .IsRequired();
 
                     b.Navigation("Blog");
+                });
+
+            modelBuilder.Entity("CarBook.Domain.Entities.AppRole", b =>
+                {
+                    b.Navigation("AppUsers");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Author", b =>
@@ -896,6 +1014,8 @@ namespace CarBook.Persistence.Migrations
                     b.Navigation("RentACars");
 
                     b.Navigation("Reservations");
+
+                    b.Navigation("Reviews");
                 });
 
             modelBuilder.Entity("CarBook.Domain.Entities.Category", b =>

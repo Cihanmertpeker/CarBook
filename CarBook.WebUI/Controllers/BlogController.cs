@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System.Text;
 using CarBook.Dto.BlogDtos;
+using CarBook.Dto.CommentDtos;
 
 
 namespace CarBook.WebUI.Controllers
@@ -47,18 +48,18 @@ namespace CarBook.WebUI.Controllers
             return PartialView();
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> AddComment(CreateCommentDto createCommentDto)
-        //{
-        //    var client = _httpClientFactory.CreateClient();
-        //    var jsonData = JsonConvert.SerializeObject(createCommentDto);
-        //    StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-        //    var responseMessage = await client.PostAsync("https://localhost:7102/api/Comments/CreateCommentWithMediator", stringContent);
-        //    if (responseMessage.IsSuccessStatusCode)
-        //    {
-        //        return RedirectToAction("Index", "Default");
-        //    }
-        //    return View();
-        //}
+        [HttpPost]
+        public async Task<IActionResult> AddComment(CreateCommentDto createCommentDto)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(createCommentDto);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PostAsync("https://localhost:7102/api/Comments/CreateCommentWithMediator", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index", "Default");
+            }
+            return View();
+        }
     }
 }
